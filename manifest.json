@@ -1,0 +1,11 @@
+{
+	"id": "kcal-mistress",
+	"name": "Kcal Mistress",
+	"version": "1.0.0",
+	"minAppVersion": "0.15.0",
+	"description": "Automatically calculate calorie intake based on simple format instructions in daily log files",
+	"author": "lineargraph",
+	"authorUrl": "https://nea.moe",
+	"fundingUrl": "https://nea.moe/funding",
+	"isDesktopOnly": false
+}
