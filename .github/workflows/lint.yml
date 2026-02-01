@@ -21,9 +21,12 @@ jobs:
               uses: actions/setup-node@v4
               with:
                   node-version: ${{ matrix.node-version }}
-                  cache: "pnpm"
             - name: Enable corepack
               run: corepack enable
+            - name: Enable pnpm cache
+              uses: actions/setup-node@v4
+              with:
+                  cache: "pnpm"
             - run: pnpm ci
             - run: pnpm run build --if-present
             - run: pnpm run lint
