@@ -140,6 +140,7 @@ const foods: Record<string, Food> = {
 			'x': 50
 		},
 	},
+	'chopped tomatoes': { kcalPer100g: 24 },
 	'triangle potato': {
 		kcalPer100g: 269 / 1.5,
 		conversions: {
@@ -147,9 +148,10 @@ const foods: Record<string, Food> = {
 		}
 	},
 	'ketchup': { kcalPer100g: 110 },
-	'vegan nutella': {
-		kcalPer100g: 534,
-	},
+	'vegan nutella': { kcalPer100g: 534, },
+	oil: { kcalPer100g: 900 },
+	'canned chickpeas': { kcalPer100g: 119 },
+	aubergine: { kcalPer100g: 22.23, },
 	'raisin bread': {
 		kcalPer100g: 313,
 		conversions: {
