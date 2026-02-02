@@ -1,8 +1,24 @@
-/*
+.food-underline-error {
+    background-color: rgba(255, 0, 0, 20%);
+    text-decoration: underline 1px red;
+}
 
-This CSS file will be included with your plugin, and
-available in the app when your plugin is enabled.
+.food-underline-parsed {
+    text-decoration: underline 2px rgba(130, 235, 209, 30%);
+}
 
-If your plugin does not need CSS, delete this file.
+.food-badge {
+    border-radius: 3px;
+    margin-left: 10px;
+    white-space-collapse: preserve;
+}
 
-*/
+.food-badge-total {
+    color: #202020;
+    background-color: (130, 235, 209, 100%);
+}
+
+.food-badge-intermediary {
+    color: #202020;
+    background-color: rgba(130, 235, 209, 60%);
+}

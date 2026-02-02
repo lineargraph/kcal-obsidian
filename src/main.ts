@@ -1,7 +1,7 @@
-import { App, Editor, MarkdownView, Modal, Notice, Plugin } from 'obsidian';
+import { Plugin } from 'obsidian';
 import { DEFAULT_SETTINGS, KcalSettings, KcalSettingsTab, } from "./settings";
-import { Decoration, DecorationSet, EditorView, PluginSpec, PluginValue, ViewPlugin, ViewUpdate, WidgetType } from '@codemirror/view';
-import { Range, RangeSetBuilder } from '@codemirror/state';
+import { Decoration, DecorationSet, EditorView, PluginValue, ViewPlugin, ViewUpdate, WidgetType } from '@codemirror/view';
+import { Range } from '@codemirror/state';
 import { syntaxTree } from '@codemirror/language';
 
 export default class KcalPlugin extends Plugin {
@@ -163,11 +163,8 @@ const globalConversions: Conversions = {
 	g: 1,
 }
 
-const underlineTheme = EditorView.baseTheme({
-	".food-underline-error": { backgroundColor: "rgba(255, 0, 0, 20%)", textDecoration: "underline 1px red" },
-	".food-underline-parsed": { textDecoration: "underline 2px rgba(130, 235, 209, 30%)", },
-})
-
+// fuck ios versions before 16.4
+// eslint-disable-next-line obsidianmd/regex-lookbehind
 const foodRegex = /(?<=[,:] *)([0-9]+(?:\.[0-9]+)?)([a-z]+) +([ a-zA-ZäÄüÜöÖß]+)(?:\(.*\b([0-9]+)kcal\b.*\) *)?($|,)/g;
 
 class KcalWidget extends WidgetType {
@@ -183,15 +180,11 @@ class KcalWidget extends WidgetType {
 	toDOM(view: EditorView): HTMLElement {
 		const div = document.createElement("span");
 		if (this.total) {
-			div.style.color = '#202020'
-			div.style.backgroundColor = "rgba(130, 235, 209, 100%)"
+			div.classList.add("food-badge-total")
 		} else {
-			div.style.color = '#202020'
-			div.style.backgroundColor = "rgba(130, 235, 209, 60%)"
+			div.classList.add("food-badge-intermediary")
 		}
-		div.style.borderRadius = '3px'
-		div.style.marginLeft = '10px'
-		div.style.whiteSpaceCollapse = 'none'
+		div.classList.add("food-badge")
 		div.innerText = (this.total ? ' = ' : '') + `${this.kcal | 0} kcal`;
 		const mDiv = document.createElement("span");
 		mDiv.appendChild(div)
@@ -205,6 +198,6 @@ export const kcalListPlugin = ViewPlugin.fromClass(
 	KcalListPlugin,
 	{
 		decorations: value => value.decorations,
-		provide: value => [underlineTheme]
+		provide: value => []
 	}
 );
