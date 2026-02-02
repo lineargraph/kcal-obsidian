@@ -15,7 +15,7 @@
 
 .food-badge-total {
     color: #202020;
-    background-color: (130, 235, 209, 100%);
+    background-color: rgba(130, 235, 209, 100%);
 }
 
 .food-badge-intermediary {
