@@ -147,6 +147,10 @@ const foods: Record<string, Food> = {
 			x: 100 // TODO: check
 		}
 	},
+	'vegan brownie': {
+		kcalPer100g: 394,
+		conversions: { x: 25 },
+	},
 	'ketchup': { kcalPer100g: 110 },
 	'vegan nutella': { kcalPer100g: 534, },
 	oil: { kcalPer100g: 900 },
